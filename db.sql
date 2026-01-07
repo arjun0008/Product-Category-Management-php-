@@ -3,11 +3,11 @@
 -- Database Dump
 -- ============================================
 
-CREATE DATABASE IF NOT EXISTS product_manager
+CREATE DATABASE IF NOT EXISTS pcm
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 
-USE product_manager;
+USE pcm;
 
 -- USERS TABLE
 DROP TABLE IF EXISTS users;
