@@ -8,12 +8,12 @@ A simple Product and Category Management web application built using
 
 <hr>
 
-<h2>Requirements</h2>
+<h2>System Requirements</h2>
 
 <ul>
     <li>PHP 8.0 or higher</li>
     <li>MySQL 5.7 or higher</li>
-    <li>Apache server (XAMPP / WAMP / LAMP)</li>
+    <li>Apache / Nginx or PHP built-in server</li>
     <li>Web browser</li>
 </ul>
 
@@ -37,9 +37,29 @@ A simple Product and Category Management web application built using
 
 <h3>2. Create the Database</h3>
 
+<p>
+Import the provided <code>database.sql</code> file using
+<strong>phpMyAdmin</strong> or MySQL CLI.
+</p>
+
+<p>The database is created with proper Unicode support:</p>
+
+<pre><code>CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci</code></pre>
+
+<p>This ensures full Unicode and emoji support.</p>
+
 <hr>
 
-<h3>3. Configure Database Connection</h3>
+<h3>3. Import Database (MySQL CLI)</h3>
+
+<pre><code>mysql -u root -p &lt; database.sql</code></pre>
+
+<p>Or import the file using phpMyAdmin.</p>
+
+<hr>
+
+<h3>4. Configure Database Connection</h3>
 
 <p>Edit the file:</p>
 
@@ -54,55 +74,55 @@ $pass = "";</code></pre>
 
 <hr>
 
-<h3>4. Create Admin User</h3>
-
-<p>Create a temporary file named <code>create_admin.php</code> in the project root:</p>
-
-<pre><code>&lt;?php
-require 'config/database.php';
-
-$username = "admin";
-$password = password_hash("admin123", PASSWORD_DEFAULT);
-
-$stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-$stmt->execute([$username, $password]);
-
-echo "Admin user created";
-</code></pre>
-
-<p>Open the file once in the browser, then <strong>DELETE the file</strong>.</p>
-
-<hr>
-
 <h3>5. Run the Application</h3>
 
-<p>Start Apache and MySQL.</p>
+<h4>Option A: Apache / XAMPP</h4>
 
-<p>Open your browser and visit:</p>
+<p>Start Apache and MySQL, then open:</p>
 
 <pre><code>http://localhost/product-manager/public/index.php</code></pre>
 
-<h4>Login Credentials</h4>
+<hr>
+
+<h4>Option B: PHP Built-in Server</h4>
+
+<p>From the project root:</p>
+
+<pre><code>php -S localhost:8000 -t public</code></pre>
+
+<p>Then open:</p>
+
+<pre><code>http://localhost:8000</code></pre>
+
+<hr>
+
+<h3>6. Default Admin Login</h3>
 
 <ul>
     <li><strong>Username:</strong> admin</li>
-    <li><strong>Password:</strong> admin123</li>
+    <li><strong>Password:</strong> admin</li>
 </ul>
+
+<p>
+(Default credentials are for development/demo purposes only.)
+</p>
 
 <hr>
 
-<h3>6. Security Notes</h3>
+<h3>7. Security Overview</h3>
 
 <ul>
-    <li>All database queries use PDO prepared statements</li>
-    <li>CSRF protection enabled for all POST actions</li>
+    <li>PDO prepared statements (SQL injection protection)</li>
+    <li>CSRF protection for all POST actions</li>
     <li>XSS protection using output escaping</li>
     <li>Session-based authentication</li>
+    <li>POST-only delete operations</li>
+    <li>Category status cascades to product status</li>
 </ul>
 
 <hr>
 
-<h2>Done</h2>
+<h2>Setup Complete</h2>
 
 <p>
 The application is now ready to use.
