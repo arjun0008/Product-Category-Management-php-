@@ -23,7 +23,7 @@ A simple Product and Category Management web application built using
 
 <h3>1. Clone the Repository</h3>
 
-<pre><code>git clone https://github.com/your-username/product-manager.git</code></pre>
+<pre><code>git clone https://github.com/arjun0008/Product-Category-Management-php-.git</code></pre>
 
 <p>Move the project folder into your web server root:</p>
 
@@ -38,24 +38,17 @@ A simple Product and Category Management web application built using
 <h3>2. Create the Database</h3>
 
 <p>
-Import the provided <code>database.sql</code> file using
-<strong>phpMyAdmin</strong> or MySQL CLI.
+Import the provided <code>db.sql</code> file using
+<strong>phpMyAdmin</strong> or <strong> MySQL CLI </strong>.
 </p>
+<h4>Option A: Using MYSQL CLI</h4>
+<strong> Import Database (MySQL CLI)</strong>
 
-<p>The database is created with proper Unicode support:</p>
-
-<pre><code>CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci</code></pre>
-
-<p>This ensures full Unicode and emoji support.</p>
-
+<pre><code>mysql -u root -p &lt; db.sql</code></pre>
 <hr>
+<h4>Option B: Using PhpMyAdmin</h4>
 
-<h3>3. Import Database (MySQL CLI)</h3>
-
-<pre><code>mysql -u root -p &lt; database.sql</code></pre>
-
-<p>Or import the file using phpMyAdmin.</p>
+<p> import the file using phpMyAdmin.</p>
 
 <hr>
 
@@ -68,7 +61,7 @@ COLLATE utf8mb4_unicode_ci</code></pre>
 <p>Update credentials if required:</p>
 
 <pre><code>$host = "localhost";
-$db   = "product_manager";
+$db   = "pcm";
 $user = "root";
 $pass = "";</code></pre>
 
@@ -80,7 +73,7 @@ $pass = "";</code></pre>
 
 <p>Start Apache and MySQL, then open:</p>
 
-<pre><code>http://localhost/product-manager/public/index.php</code></pre>
+<pre><code>http://localhost/pcm/public/index.php</code></pre>
 
 <hr>
 
@@ -106,19 +99,6 @@ $pass = "";</code></pre>
 <p>
 (Default credentials are for development/demo purposes only.)
 </p>
-
-<hr>
-
-<h3>7. Security Overview</h3>
-
-<ul>
-    <li>PDO prepared statements (SQL injection protection)</li>
-    <li>CSRF protection for all POST actions</li>
-    <li>XSS protection using output escaping</li>
-    <li>Session-based authentication</li>
-    <li>POST-only delete operations</li>
-    <li>Category status cascades to product status</li>
-</ul>
 
 <hr>
 
