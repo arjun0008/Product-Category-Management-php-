@@ -42,17 +42,18 @@ Import the provided <code>db.sql</code> file using
 <strong>phpMyAdmin</strong> or <strong> MySQL CLI </strong>.
 </p>
 <h4>Option A: Using MYSQL CLI</h4>
-<strong> Import Database (MySQL CLI)</strong>
+
+<p> Import Database (MySQL CLI)</p>
 
 <pre><code>mysql -u root -p &lt; db.sql</code></pre>
-<hr>
+
 <h4>Option B: Using PhpMyAdmin</h4>
 
 <p> import the file using phpMyAdmin.</p>
 
 <hr>
 
-<h3>4. Configure Database Connection</h3>
+<h3>3. Configure Database Connection</h3>
 
 <p>Edit the file:</p>
 
@@ -67,7 +68,7 @@ $pass = "";</code></pre>
 
 <hr>
 
-<h3>5. Run the Application</h3>
+<h3>4. Run the Application</h3>
 
 <h4>Option A: Apache / XAMPP</h4>
 
@@ -89,7 +90,7 @@ $pass = "";</code></pre>
 
 <hr>
 
-<h3>6. Default Admin Login</h3>
+<h3>5. Default Admin Login</h3>
 
 <ul>
     <li><strong>Username:</strong> admin</li>
